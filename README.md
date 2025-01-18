@@ -2,7 +2,7 @@
 
 ## 1. Клонирование репозитория
 ```bash
-git clone https://github.com/huh6789/foodgram-st.git
+git clone https://github.com/impleex/foodgram-st.git
 ```
 ## 2. Запуск контейнеров
 ```bash
