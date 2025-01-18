@@ -1,4 +1,30 @@
-Находясь в папке infra, выполните команду docker-compose up. При выполнении этой команды контейнер frontend, описанный в docker-compose.yml, подготовит файлы, необходимые для работы фронтенд-приложения, а затем прекратит свою работу.
+# Инструкция по запуску проекта
 
-По адресу http://localhost изучите фронтенд веб-приложения, а по адресу http://localhost/api/docs/ — спецификацию API.
+## 1. Клонирование репозитория
+```bash
+git clone https://github.com/huh6789/foodgram-st.git
+```
+## 2. Запуск контейнеров
+```bash
+cd infra
+docker-compose up -d
+```
+## 3. Создание суперпользователя
+```bash
+docker-compose exec backend python manage.py createsuperuser
+```
 
+## 4. Загрузка ингредиентов
+```bash
+cd infra
+docker-compose exec backend bash
+python manage.py load_ingredients data/ingredients.json
+```
+## 5. Доступ к сервису
+```bash
+Фронтенд доступен по адресу: http://localhost
+
+Тестирование API можно проводить с помощью Postman.
+Файл коллекции тестов находится по пути:
+postman_collection/foodgram.postman_collection.json
+```
