@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    ports:
+      - "9002:5432"
